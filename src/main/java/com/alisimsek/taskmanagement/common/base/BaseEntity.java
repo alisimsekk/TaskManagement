@@ -1,4 +1,4 @@
-package com.alisimsek.taskmanagement.common.baseentity;
+package com.alisimsek.taskmanagement.common.base;
 
 import com.alisimsek.taskmanagement.user.entity.User;
 import jakarta.persistence.*;
