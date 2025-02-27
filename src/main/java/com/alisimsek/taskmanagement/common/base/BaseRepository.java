@@ -1,17 +1,19 @@
-package com.alisimsek.taskmanagement.common.baserepository;
+package com.alisimsek.taskmanagement.common.base;
 
-import com.alisimsek.taskmanagement.common.baseentity.BaseEntity;
-import com.alisimsek.taskmanagement.common.baseentity.EntityStatus;
+import com.alisimsek.taskmanagement.common.exception.EntityNotFoundException;
+import org.springframework.core.GenericTypeResolver;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.NoRepositoryBean;
 
 import java.util.List;
 import java.util.Optional;
 
+@NoRepositoryBean
 public interface BaseRepository<T extends BaseEntity, ID extends Long> extends JpaRepository<T, ID > {
 
     default T getById(ID id) {
         return findById(id)
-                .orElseThrow(() -> new RuntimeException("Entity not found")); //TODO replace with custom exception.
+                .orElseThrow(this::entityNotFound);
     }
 
     Optional<T> findByGuid(String guid);
@@ -22,7 +24,7 @@ public interface BaseRepository<T extends BaseEntity, ID extends Long> extends J
 
     default T getByGuid(String guid) {
         return findByGuid(guid)
-                .orElseThrow(() -> new RuntimeException("Entity not found")); //TODO replace with custom exception.
+                .orElseThrow(this::entityNotFound);
     }
 
     List<T> findAllByEntityStatus(EntityStatus entityStatus);
@@ -39,5 +41,16 @@ public interface BaseRepository<T extends BaseEntity, ID extends Long> extends J
             entity.delete();
             save(entity);
         }
+    }
+
+    default EntityNotFoundException entityNotFound() {
+        Object[] args = new Object[1];
+        args[0] = getEntityClassName();
+        return new EntityNotFoundException(args);
+    }
+
+    default String getEntityClassName() {
+        Class<?>[] classes = GenericTypeResolver.resolveTypeArguments(getClass(), BaseRepository.class);
+        return classes[0].getSimpleName();
     }
 }
