@@ -15,6 +15,6 @@ public class ErrorCodeLookUp {
     }
 
     public static String getMessageKey(String errorCode) {
-        return value.getOrDefault(errorCode, "GENERIC_ERROR");
+        return value.getOrDefault(errorCode, "GENERIC_EXCEPTION");
     }
 }
