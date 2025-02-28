@@ -3,7 +3,6 @@ package com.alisimsek.taskmanagement.common.exception;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.Map;
 
 @Getter
@@ -17,6 +16,4 @@ public class ErrorResponse {
     private String message;
     private String errorCode;
     private Map<String, String> validationErrors;
-    @Builder.Default
-    private LocalDateTime timestamp = LocalDateTime.now();
 }
