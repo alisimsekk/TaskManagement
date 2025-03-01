@@ -1,6 +1,5 @@
-package com.alisimsek.taskmanagement.department.exception;
+package com.alisimsek.taskmanagement.common.exception;
 
-import com.alisimsek.taskmanagement.common.exception.BaseException;
 import org.springframework.http.HttpStatus;
 
 public class EntityAlreadyExistsException extends BaseException {
