@@ -42,7 +42,7 @@ public abstract class BaseEntity {
     private LocalDateTime updateDate;
 
     @Enumerated(EnumType.STRING)
-    private EntityStatus entityStatus;
+    private EntityStatus entityStatus = EntityStatus.ACTIVE;
 
     public void delete() {
         if (EntityStatus.ACTIVE.equals(getEntityStatus())) {
