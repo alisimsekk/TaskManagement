@@ -11,7 +11,8 @@ public class ErrorCodeLookUp {
 
     static {
         value = new HashMap<>();
-        value.put("4000", "ENTITY_NOT_FOUND");
+        value.put("4000", "ENTITY_NOT_FOUND_EXCEPTION");
+        value.put("4001", "ENTITY_ALREADY_EXISTS_EXCEPTION");
     }
 
     public static String getMessageKey(String errorCode) {
