@@ -10,6 +10,7 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -19,6 +20,7 @@ import java.util.UUID;
 @SuperBuilder
 @NoArgsConstructor
 @MappedSuperclass
+@EntityListeners({AuditingEntityListener.class})
 public abstract class BaseEntity {
 
     @Id
@@ -32,14 +34,16 @@ public abstract class BaseEntity {
     private User createdBy;
 
     @CreatedDate
-    private LocalDateTime createDate;
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdDate;
 
     @LastModifiedBy
     @ManyToOne(fetch = FetchType.LAZY)
     private User modifiedBy;
 
     @LastModifiedDate
-    private LocalDateTime updateDate;
+    @Column(nullable = false)
+    private LocalDateTime updatedDate;
 
     @Enumerated(EnumType.STRING)
     private EntityStatus entityStatus = EntityStatus.ACTIVE;
