@@ -18,7 +18,7 @@ import java.util.List;
 @Builder
 public class Department extends BaseEntity {
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
