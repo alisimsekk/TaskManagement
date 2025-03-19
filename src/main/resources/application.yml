@@ -1,1 +1,8 @@
-spring.application.name=task-management
+spring:
+  application:
+    name: task-management
+
+jwt:
+  secret: ${JWT_SECRET_KEY:RGVmaW5lWCZQYXRpa2FEZXYmVGFza01hbmFnZW1lbnQ=}
+  expiration: ${JWT_EXPIRATION:3600000}
+  issuer: task-management

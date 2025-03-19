@@ -12,7 +12,6 @@ import com.alisimsek.taskmanagement.security.CurrentPrincipalProvider;
 import com.alisimsek.taskmanagement.task.entity.Task;
 import com.alisimsek.taskmanagement.task.repository.TaskRepository;
 import com.alisimsek.taskmanagement.user.entity.User;
-import com.alisimsek.taskmanagement.user.repository.UserRepository;
 import com.querydsl.core.BooleanBuilder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

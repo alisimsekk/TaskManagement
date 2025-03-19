@@ -3,7 +3,6 @@ package com.alisimsek.taskmanagement.project.controller.dto.response;
 import com.alisimsek.taskmanagement.common.base.EntityStatus;
 import com.alisimsek.taskmanagement.department.controller.dto.response.DepartmentDto;
 import com.alisimsek.taskmanagement.project.entity.ProjectStatus;
-import com.alisimsek.taskmanagement.user.controller.dto.response.UserDto;
 import lombok.Builder;
 import lombok.Data;
 

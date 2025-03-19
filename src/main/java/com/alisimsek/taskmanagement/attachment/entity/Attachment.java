@@ -2,10 +2,7 @@ package com.alisimsek.taskmanagement.attachment.entity;
 
 import com.alisimsek.taskmanagement.common.base.BaseEntity;
 import com.alisimsek.taskmanagement.task.entity.Task;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -15,8 +12,11 @@ import lombok.*;
 @Entity
 @Builder
 public class Attachment extends BaseEntity {
+    @Column(nullable = false)
     private String uniqueFilename;
+    @Column(nullable = false)
     private String originalFilename;
+    @Column(nullable = false)
     private String fileDownloadUri;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id", nullable = false)

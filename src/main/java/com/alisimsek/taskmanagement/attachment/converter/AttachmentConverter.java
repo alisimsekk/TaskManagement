@@ -4,7 +4,6 @@ import com.alisimsek.taskmanagement.attachment.controller.dto.request.Attachment
 import com.alisimsek.taskmanagement.attachment.controller.dto.response.AttachmentDto;
 import com.alisimsek.taskmanagement.attachment.entity.Attachment;
 import com.alisimsek.taskmanagement.common.BaseConverter;
-import com.alisimsek.taskmanagement.task.controller.dto.request.AddAttachmentRequest;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -28,12 +27,4 @@ public class AttachmentConverter extends BaseConverter<Attachment, AttachmentDto
         attachment.setFileDownloadUri(request.getFileDownloadUri());
         return attachment;
     }
-
-/*    public Attachment convertToEntity(AddAttachmentRequest request) {
-        Attachment attachment = new Attachment();
-        attachment.setOriginalFilename(request.getOriginalFilename());
-        attachment.setUniqueFilename(request.getUniqueFilename());
-        attachment.setFileDownloadUri(request.getFileDownloadUri());
-        return attachment;
-    }*/
 }

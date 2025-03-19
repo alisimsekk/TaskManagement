@@ -32,13 +32,11 @@ public class ProjectController {
         return ResponseEntity.ok(ApiResponse.success(projectService.createProject(request)));
     }
 
-    @PreAuthorize("hasAuthority('MANAGE_PROJECTS')")
     @GetMapping("/{guid}")
     public ResponseEntity<ApiResponse<ProjectDto>> getProjectByGuid(@PathVariable String guid) {
         return ResponseEntity.ok(ApiResponse.success(projectService.getProjectByGuid(guid)));
     }
 
-    @PreAuthorize("hasAuthority('MANAGE_PROJECTS')")
     @GetMapping
     public ResponseEntity<ApiResponse<List<ProjectDto>>> getAllProjects(Pageable pageable) {
         Page<ProjectDto> projectsPage = projectService.getAllProjects(pageable);
@@ -48,7 +46,6 @@ public class ProjectController {
                 .body(ApiResponse.success(projectsPage.getContent()));
     }
 
-    @PreAuthorize("hasAuthority('MANAGE_PROJECTS')")
     @GetMapping("/search")
     public ResponseEntity<ApiResponse<List<ProjectDto>>> searchProjects(
             @RequestParam(required = false) String title,
@@ -76,6 +73,7 @@ public class ProjectController {
         return ResponseEntity.ok(ApiResponse.empty());
     }
 
+    @PreAuthorize("hasAuthority('MANAGE_PROJECTS')")
     @PostMapping("/activate/{guid}")
     public ResponseEntity<ApiResponse<ProjectDto>> activateProject(@PathVariable String guid) {
         return ResponseEntity.ok(ApiResponse.success(projectService.activateProject(guid)));

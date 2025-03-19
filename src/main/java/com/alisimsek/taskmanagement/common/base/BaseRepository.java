@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.NoRepositoryBean;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -20,16 +19,10 @@ public interface BaseRepository<T extends BaseEntity, ID extends Long> extends J
 
     Optional<T> findByGuid(String guid);
 
-    Optional<T> findByIdAndEntityStatus(ID id, EntityStatus entityStatus);
-
-    Optional<T> findByGuidAndEntityStatus(String guid, EntityStatus entityStatus);
-
     default T getByGuid(String guid) {
         return findByGuid(guid)
                 .orElseThrow(entityNotFound());
     }
-
-    List<T> findAllByEntityStatus(EntityStatus entityStatus);
 
     default void activate(T entity) {
         if (EntityStatus.DELETED.equals(entity.getEntityStatus())) {
