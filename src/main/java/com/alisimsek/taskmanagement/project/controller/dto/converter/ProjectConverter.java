@@ -29,9 +29,9 @@ public class ProjectConverter extends BaseConverter<Project, ProjectDto> {
                 .status(source.getStatus())
                 .department((Objects.nonNull(source.getDepartment()) && EntityStatus.ACTIVE.equals(source.getDepartment().getEntityStatus())) ?
                         departmentConverter.convert(source.getDepartment()) : null)
-                .teamMembers(source.getTeamMembers().stream().
+                .teamMembers(Objects.nonNull(source.getTeamMembers()) ? source.getTeamMembers().stream().
                         filter(teamMember -> EntityStatus.ACTIVE.equals(teamMember.getEntityStatus()))
-                        .map(this::convertToTeamMemberDto).collect(Collectors.toList()))
+                        .map(this::convertToTeamMemberDto).collect(Collectors.toList()) : null)
                 .build();
     }
 
