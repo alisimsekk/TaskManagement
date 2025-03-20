@@ -11,5 +11,4 @@ public class FileUploadResponseDto {
     private String fileDownloadUri;
     private String fileType;
     private long size;
-
 }

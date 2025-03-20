@@ -7,12 +7,13 @@ import com.alisimsek.taskmanagement.attachment.controller.dto.response.Attachmen
 import com.alisimsek.taskmanagement.attachment.controller.dto.response.FileDownloadDto;
 import com.alisimsek.taskmanagement.attachment.controller.dto.response.FileUploadResponseDto;
 import com.alisimsek.taskmanagement.attachment.entity.Attachment;
-import com.alisimsek.taskmanagement.common.base.EntityStatus;
 import com.alisimsek.taskmanagement.task.entity.Task;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -87,4 +88,58 @@ public class AttachmentTestProvider {
         attachment.setTask(task);
         return attachment;
     }
+
+    public static MockMultipartFile getMultipartFile(String filename, String contentType) {
+        return new MockMultipartFile(
+                "file",
+                filename,
+                contentType,
+                "test content".getBytes()
+        );
+    }
+
+    public static MultipartFile getMultipartFileThatThrowsIOException() {
+        return new MultipartFile() {
+            @Override
+            public String getName() {
+                return "file";
+            }
+
+            @Override
+            public String getOriginalFilename() {
+                return "test.pdf";
+            }
+
+            @Override
+            public String getContentType() {
+                return "application/pdf";
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @Override
+            public long getSize() {
+                return 100;
+            }
+
+            @Override
+            public byte[] getBytes() throws IOException {
+                return "test content".getBytes();
+            }
+
+            @Override
+            public java.io.InputStream getInputStream() throws IOException {
+                throw new IOException("Simulated IO exception");
+            }
+
+            @Override
+            public void transferTo(java.io.File dest) throws IOException, IllegalStateException {
+                throw new IOException("Simulated IO exception");
+            }
+        };
+    }
+
 }

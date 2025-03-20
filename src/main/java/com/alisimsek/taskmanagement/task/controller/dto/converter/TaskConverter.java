@@ -40,7 +40,7 @@ public class TaskConverter extends BaseConverter<Task, TaskDto> {
                 .cancellationReason(source.getCancellationReason())
                 .blockReason(source.getBlockReason())
                 .priority(source.getPriority())
-                .comments(Objects.nonNull(source.getComments())? commentConverter.convertList(source.getComments()) : null)
+                .comments(Objects.nonNull(source.getComments()) ? commentConverter.convertList(source.getComments()) : null)
                 .attachments(Objects.nonNull(source.getAttachments()) ? source.getAttachments().stream()
                         .filter(attachment -> EntityStatus.ACTIVE.equals(attachment.getEntityStatus()))
                         .map(attachmentConverter::convert).collect(Collectors.toList()) : null)

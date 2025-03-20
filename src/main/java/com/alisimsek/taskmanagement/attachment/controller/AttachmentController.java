@@ -88,7 +88,7 @@ public class AttachmentController {
         return ResponseEntity.ok(ApiResponse.success(attachmentService.activateAttachment(guid)));
     }
 
-    @PostMapping("/upload")
+    @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ApiResponse<List<FileUploadResponseDto>>> saveFiles(@RequestParam("files") List<MultipartFile> files) {
         return ResponseEntity.ok(ApiResponse.success(fileStorageService.saveFiles(files)));
     }

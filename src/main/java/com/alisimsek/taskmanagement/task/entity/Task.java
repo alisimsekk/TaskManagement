@@ -50,7 +50,7 @@ public class Task extends BaseEntity {
     private TaskPriority priority = TaskPriority.LOW;
 
     @OneToMany(mappedBy = "task")
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 
     @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
     private List<Attachment> attachments = new ArrayList<>();

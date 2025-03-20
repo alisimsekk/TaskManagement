@@ -16,7 +16,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -57,7 +56,6 @@ public class DepartmentControllerTest {
 
     @Test
     public void testCreateDepartment() throws Exception {
-        // Arrange
         DepartmentCreateRequest request = getDepartmentCreateRequest();
 
         DepartmentDto responseDto = getDepartmentDto();
@@ -85,11 +83,8 @@ public class DepartmentControllerTest {
 
     @Test
     public void testGetAllDepartments() throws Exception {
-        // Arrange
         Pageable pageable = PageRequest.of(0, 10);
-
         List<DepartmentDto> departments = Collections.singletonList(getDepartmentDto());
-
         Page<DepartmentDto> departmentPage = new PageImpl<>(departments, pageable, departments.size());
 
         when(departmentService.getAllDepartments(any(Pageable.class))).thenReturn(departmentPage);
@@ -106,14 +101,8 @@ public class DepartmentControllerTest {
     public void testSearchDepartments() throws Exception {
         EntityStatus status = EntityStatus.ACTIVE;
         Pageable pageable = PageRequest.of(0, 10);
-
         List<DepartmentDto> departments = Collections.singletonList(getDepartmentDto());
-
         Page<DepartmentDto> departmentPage = new PageImpl<>(departments, pageable, departments.size());
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("X-Total-Count", "1");
-        headers.add("X-Total-Pages", "1");
 
         when(departmentService.searchDepartments(any(), any(), any(Pageable.class))).thenReturn(departmentPage);
 
@@ -132,11 +121,8 @@ public class DepartmentControllerTest {
     @Test
     public void testUpdateDepartment() throws Exception {
         String guid = "dept-123";
-
         DepartmentCreateRequest request = getDepartmentCreateRequest();
-
         DepartmentDto responseDto = getDepartmentDto();
-
         when(departmentService.updateDepartment(eq(guid), any(DepartmentCreateRequest.class))).thenReturn(responseDto);
 
         mockMvc.perform(put( DEPARTMENT_API_BASE_PATH + "/{guid}", guid)
@@ -161,7 +147,6 @@ public class DepartmentControllerTest {
     @Test
     public void testActivateDepartment() throws Exception {
         String guid = "dept-123";
-
         DepartmentDto responseDto = getDepartmentDto();
 
         when(departmentService.activateDepartment(guid)).thenReturn(responseDto);
