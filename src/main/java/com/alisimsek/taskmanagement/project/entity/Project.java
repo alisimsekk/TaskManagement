@@ -7,6 +7,7 @@ import com.alisimsek.taskmanagement.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -36,7 +37,7 @@ public class Project extends BaseEntity {
             joinColumns = @JoinColumn(name = "project_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<User> teamMembers;
+    private List<User> teamMembers = new ArrayList<>();
 
     @OneToMany(mappedBy = "project")
     private List<Task> tasks;
