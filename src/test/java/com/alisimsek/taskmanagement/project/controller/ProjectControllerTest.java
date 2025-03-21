@@ -22,7 +22,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import java.util.List;
 
@@ -56,7 +55,6 @@ class ProjectControllerTest {
         objectMapper = new ObjectMapper();
         mockMvc = MockMvcBuilders.standaloneSetup(projectController)
                 .setCustomArgumentResolvers(new PageableHandlerMethodArgumentResolver())
-                .setViewResolvers((viewName, locale) -> new MappingJackson2JsonView())
                 .build();
 
         projectDto = getProjectDto();

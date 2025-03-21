@@ -21,7 +21,6 @@ import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import java.util.Collections;
 import java.util.List;
@@ -50,10 +49,9 @@ public class CommentControllerTest {
     @BeforeEach
     public void setup() {
         objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule()); // For handling LocalDateTime
+        objectMapper.registerModule(new JavaTimeModule());
         mockMvc = MockMvcBuilders.standaloneSetup(commentController)
                 .setCustomArgumentResolvers(new PageableHandlerMethodArgumentResolver())
-                .setViewResolvers((viewName, locale) -> new MappingJackson2JsonView())
                 .build();
     }
 

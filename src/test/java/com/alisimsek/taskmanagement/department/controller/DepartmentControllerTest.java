@@ -19,7 +19,6 @@ import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import java.util.Collections;
 import java.util.List;
@@ -50,7 +49,6 @@ public class DepartmentControllerTest {
         objectMapper = new ObjectMapper();
         mockMvc = MockMvcBuilders.standaloneSetup(departmentController)
                 .setCustomArgumentResolvers(new PageableHandlerMethodArgumentResolver())
-                .setViewResolvers((viewName, locale) -> new MappingJackson2JsonView())
                 .build();
     }
 
