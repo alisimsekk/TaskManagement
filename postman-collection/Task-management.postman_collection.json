@@ -1,0 +1,1352 @@
+{
+	"info": {
+		"_postman_id": "97572be8-8da8-4452-bf39-47b900aa4411",
+		"name": "Task-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31392546"
+	},
+	"item": [
+		{
+			"name": "DepartmentController",
+			"item": [
+				{
+					"name": "CreateDepartment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Java Backend\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/departments"
+					},
+					"response": []
+				},
+				{
+					"name": "getDepartmentByGuid",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/departments/cf353ecf-1541-4cca-9dc2-c65ba4389aea"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllDepartments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/departments"
+					},
+					"response": []
+				},
+				{
+					"name": "searchDepartments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/departments/search?entityStatus=DELETED",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"departments",
+								"search"
+							],
+							"query": [
+								{
+									"key": "entityStatus",
+									"value": "DELETED"
+								},
+								{
+									"key": "name",
+									"value": "w",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateDepartment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" :\"update name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/departments/43689574-92dd-4193-9039-bc00cec834ab"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteDepartment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/departments/cf353ecf-1541-4cca-9dc2-c65ba4389aea"
+					},
+					"response": []
+				},
+				{
+					"name": "activateDepartment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/departments/activate/cf353ecf-1541-4cca-9dc2-c65ba4389aea"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ProjectController",
+			"item": [
+				{
+					"name": "createProject",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"proje-1\",\n    \"description\" : \"1. proje\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/projects"
+					},
+					"response": []
+				},
+				{
+					"name": "getProjectByGuid",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/projects/37be6263-3669-4e52-8eaa-62884b8ebe58"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProjects",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/projects"
+					},
+					"response": []
+				},
+				{
+					"name": "searchProjects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/projects/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								"search"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "pr",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProject",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"proje-2\",\n    \"description\" : \"2. proje\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/projects/18311419-f252-4b3d-9cbf-145e96329f9f"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProject",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/projects/37be6263-3669-4e52-8eaa-62884b8ebe58"
+					},
+					"response": []
+				},
+				{
+					"name": "activateProject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/projects/activate/37be6263-3669-4e52-8eaa-62884b8ebe58"
+					},
+					"response": []
+				},
+				{
+					"name": "addDepartmentToProject",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"projectGuid\" : \"b1392726-b8fb-47fe-91ce-dd50affe317d\",\n    \"departmentGuid\" : \"f433d319-0ead-41b6-800a-213f04f77dcf\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/projects/add-department"
+					},
+					"response": []
+				},
+				{
+					"name": "addTeamMemberToProject",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"projectGuid\" : \"37be6263-3669-4e52-8eaa-62884b8ebe58\",\n    \"teamMemberGuid\" : \"296d1117-3877-4794-9cfd-3a1d739fde47\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/projects/add-team-member"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AttachmentController",
+			"item": [
+				{
+					"name": "saveFiles",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/Users/ali/Downloads/ali/Ali_Simsek_CV.pdf",
+										"/Users/ali/Downloads/test.txt"
+									]
+								},
+								{
+									"key": "request",
+									"value": "{\n\"filePath\" : \"path\"\n}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": "http://localhost:8088/api/v1/attachments/upload"
+					},
+					"response": []
+				},
+				{
+					"name": "downloadFile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/attachments/download/29b55d25-cf72-4b3a-8ab9-5fb4bde53f81.pdf"
+					},
+					"response": []
+				},
+				{
+					"name": "createAttachment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"originalFilename\": \"updated.txt\",\n    \"uniqueFilename\": \"81576b75-e250-40bd-9906-bdba8f148393.txt\",\n    \"fileDownloadUri\": \"/api/v1/attachments/download/81576b75-e250-40bd-9906-bdba8f148393.txt\",\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/attachments/690503e0-388b-4113-87db-72521a60d759"
+					},
+					"response": []
+				},
+				{
+					"name": "getAttachmentByGuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/attachments/fa0976a7-4b5b-4f1f-8a62-7161d4d46059"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllAttachments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/attachments"
+					},
+					"response": []
+				},
+				{
+					"name": "searchAttachment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/attachments/search?entityStatus=DELETED&originalFilename=CV",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"attachments",
+								"search"
+							],
+							"query": [
+								{
+									"key": "entityStatus",
+									"value": "DELETED"
+								},
+								{
+									"key": "originalFilename",
+									"value": "CV"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAttachment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"originalFilename\" : \"test.txt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/attachments/fa0976a7-4b5b-4f1f-8a62-7161d4d46059"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAttachment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/attachments/fa0976a7-4b5b-4f1f-8a62-7161d4d46059"
+					},
+					"response": []
+				},
+				{
+					"name": "activateAttachment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/attachments/activate/fa0976a7-4b5b-4f1f-8a62-7161d4d46059"
+					},
+					"response": []
+				},
+				{
+					"name": "createBulkAttachments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"taskGuid\" : \"6a139a54-4c0c-4678-9421-6593302c1fd3\",\n    \"attachments\" : [\n        {\n            \"originalFilename\": \"Ali_Simsek_CV.pdf\",\n            \"uniqueFilename\": \"fb8a391e-b184-4d7e-a5b1-fde797a88d2f.pdf\",\n            \"fileDownloadUri\": \"/api/v1/attachments/download/fb8a391e-b184-4d7e-a5b1-fde797a88d2f.pdf\"\n    \n        },\n        {\n            \"originalFilename\": \"test.txt\",\n            \"uniqueFilename\": \"bd620000-06ba-4bb1-bbf1-56f5f597ad20.txt\",\n            \"fileDownloadUri\": \"/api/v1/attachments/download/bd620000-06ba-4bb1-bbf1-56f5f597ad20.txt\"\n       \n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/attachments"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TaskController",
+			"item": [
+				{
+					"name": "createTask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Implement Authentication\",\n    \"description\": \"Implement JWT-based authentication for the application.\",\n    \"userStoryDescription\": \"As a user, I want to log in securely using JWT authentication.\",\n    \"acceptanceCriteria\": \"1. Users should receive a JWT token after successful login.\\n2. Expired tokens should be rejected.\",\n    \"state\": \"BACKLOG\",\n    \"priority\": \"HIGH\",\n    \"projectGuid\": \"b1392726-b8fb-47fe-91ce-dd50affe317d\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/tasks"
+					},
+					"response": []
+				},
+				{
+					"name": "getTaskByGuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/tasks/690503e0-388b-4113-87db-72521a60d759"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllTasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/tasks"
+					},
+					"response": []
+				},
+				{
+					"name": "searchTask",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/tasks/search?projectTitle=pro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"search"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Authentication",
+									"disabled": true
+								},
+								{
+									"key": "projectGuid",
+									"value": "18311419-f252-4b3d-9cbf-145e96329f9f",
+									"disabled": true
+								},
+								{
+									"key": "projectTitle",
+									"value": "pro"
+								},
+								{
+									"key": "entityStatus",
+									"value": "DELETED",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTask",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/tasks/690503e0-388b-4113-87db-72521a60d759"
+					},
+					"response": []
+				},
+				{
+					"name": "activateTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/tasks/activate/690503e0-388b-4113-87db-72521a60d759"
+					},
+					"response": []
+				},
+				{
+					"name": "updateTask",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Implement Authentication\",\n    \"description\": \"Implement JWT-based authentication for the application.\",\n    \"userStoryDescription\": \"As a user, I want to log in securely using JWT authentication.\",\n    \"acceptanceCriteria\": \"1. Users should receive a JWT token after successful login.\\n2. Expired tokens should be rejected.\",\n    \"attachments\": [\n        {\n            \"originalFilename\": \"test.txt\",\n            \"uniqueFilename\": \"4815d92a-09b9-4649-aff4-2f453bb4376e.txt\",\n            \"fileDownloadUri\": \"/api/v1/attachments/download/4815d92a-09b9-4649-aff4-2f453bb4376e.txt\"\n        },\n        {\n            \"uniqueFilename\": \"29b55d25-cf72-4b3a-8ab9-5fb4bde53f81.pdf\",\n            \"originalFilename\": \"Oğuz Şimşek - cv.pdf\",\n            \"fileDownloadUri\": \"/api/v1/attachments/download/29b55d25-cf72-4b3a-8ab9-5fb4bde53f81.pdf\"\n        }\n    ],\n    \"priority\": \"MEDIUM\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/tasks/690503e0-388b-4113-87db-72521a60d759"
+					},
+					"response": []
+				},
+				{
+					"name": "updateTaskState",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\" : \"IN_DEVELOPMENT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/tasks/690503e0-388b-4113-87db-72521a60d759/update-state"
+					},
+					"response": []
+				},
+				{
+					"name": "addAttachmentsToTask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"attachments\" : [\n        {\n            \"originalFilename\": \"Ali_Simsek_CV.pdf\",\n            \"uniqueFilename\": \"fb8a391e-b184-4d7e-a5b1-fde797a88d2f.pdf\",\n            \"fileDownloadUri\": \"/api/v1/attachments/download/fb8a391e-b184-4d7e-a5b1-fde797a88d2f.pdf\"\n    \n        },\n        {\n            \"originalFilename\": \"test.txt\",\n            \"uniqueFilename\": \"bd620000-06ba-4bb1-bbf1-56f5f597ad20.txt\",\n            \"fileDownloadUri\": \"/api/v1/attachments/download/bd620000-06ba-4bb1-bbf1-56f5f597ad20.txt\"\n       \n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/tasks/6a139a54-4c0c-4678-9421-6593302c1fd3/add-attachments"
+					},
+					"response": []
+				},
+				{
+					"name": "removeAttachmentFromTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/tasks/690503e0-388b-4113-87db-72521a60d759/remove-attachment/d7666d2b-218e-4570-8624-23160eed136d"
+					},
+					"response": []
+				},
+				{
+					"name": "assignTaskToTeamMember",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/tasks/690503e0-388b-4113-87db-72521a60d759/assign/296d1117-3877-4794-9cfd-3a1d739fde47"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserController",
+			"item": [
+				{
+					"name": "createUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" :\"admin@mail.com\",\n    \"password\" :\"Fb123456\",\n    \"firstName\" : \"firstName\",\n    \"lastName\":\"lastName\",\n    \"userType\":\"ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "getUserByGuid",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/users/296d1117-3877-4794-9cfd-3a1d739fde47"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/users"
+					},
+					"response": []
+				},
+				{
+					"name": "searchUsers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/users/search?username=&firstName=Fi&userType=ADMIN",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "entityStatus",
+									"value": "DELETED",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": ""
+								},
+								{
+									"key": "firstName",
+									"value": "Fi"
+								},
+								{
+									"key": "lastName",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "userType",
+									"value": "ADMIN"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\" : \"update first\",\n    \"lastName\" : \"update last\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/users/296d1117-3877-4794-9cfd-3a1d739fde47"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/users/296d1117-3877-4794-9cfd-3a1d739fde47"
+					},
+					"response": []
+				},
+				{
+					"name": "activateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/users/activate/296d1117-3877-4794-9cfd-3a1d739fde47"
+					},
+					"response": []
+				},
+				{
+					"name": "addUserRoleToUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/users/7d0fe52b-b45e-4141-bde1-d26cf112e19a/add-role/52ca106d-da0a-4a93-a90e-ea8ef797196c"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CommentController",
+			"item": [
+				{
+					"name": "createComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\" : \"auditawere test\",\n    \"taskGuid\" : \"6a139a54-4c0c-4678-9421-6593302c1fd3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/comments"
+					},
+					"response": []
+				},
+				{
+					"name": "getCommentByGuid",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/comments/8ddefa46-e78b-43ee-87a4-8e5c7b8a3744"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllComments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/comments"
+					},
+					"response": []
+				},
+				{
+					"name": "searchComments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/comments/search?authorFirstName=f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"comments",
+								"search"
+							],
+							"query": [
+								{
+									"key": "entityStatus",
+									"value": "DELETED",
+									"disabled": true
+								},
+								{
+									"key": "authorFirstName",
+									"value": "f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\" : \"update content\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/comments/42443c31-3ce0-45f7-a1e7-9de2835e4b09"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteComment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/comments/8ddefa46-e78b-43ee-87a4-8e5c7b8a3744"
+					},
+					"response": []
+				},
+				{
+					"name": "activateComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/comments/activate/8ddefa46-e78b-43ee-87a4-8e5c7b8a3744"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserRoleController",
+			"item": [
+				{
+					"name": "createUserRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Super admin\",\n    \"description\": \"Super admin\",\n    \"userPermissions\": [\n        \"MANAGE_PROJECTS\",\n        \"MANAGE_TASKS\",\n        \"ASSIGN_TEAM_MEMBER\",\n        \"UPDATE_TASK_STATE\",\n        \"SET_TASK_PRIORITY\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/roles"
+					},
+					"response": []
+				},
+				{
+					"name": "getUserRoleByGuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/roles/4ff2c8e8-e1b2-41e1-b868-726490d086ef"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUserRoles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/roles"
+					},
+					"response": []
+				},
+				{
+					"name": "searchUserRoles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/roles/search?name=s",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"roles",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "s"
+								},
+								{
+									"key": "entityStatus",
+									"value": "DELETED",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Super admin\",\n    \"description\": \"description-2\",\n    \"userPermissions\": [\n        \"MANAGE_PROJECTS\",\n        \"MANAGE_TASKS\",\n        \"ASSIGN_TEAM_MEMBER\",\n        \"UPDATE_TASK_STATE\",\n        \"SET_TASK_PRIORITY\",\n        \"ADD_ATTACHMENT\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/roles/52ca106d-da0a-4a93-a90e-ea8ef797196c"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUserRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/roles/4ff2c8e8-e1b2-41e1-b868-726490d086ef"
+					},
+					"response": []
+				},
+				{
+					"name": "activateUserRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{accessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8088/api/v1/roles/activate/4ff2c8e8-e1b2-41e1-b868-726490d086ef"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AuthController",
+			"item": [
+				{
+					"name": "login-as-admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();",
+									"",
+									"if (response.data && response.data.accessToken) {",
+									"    postman.setEnvironmentVariable(\"accessToken\", response.data.accessToken);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"admin@mail.com\",\n    \"password\" : \"Aa123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "login-as-project-manager",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();",
+									"",
+									"if (response.data && response.data.accessToken) {",
+									"    postman.setEnvironmentVariable(\"accessToken\", response.data.accessToken);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"project-manager@mail.com\",\n    \"password\" : \"Aa123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "login-as-team-leader",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();",
+									"",
+									"if (response.data && response.data.accessToken) {",
+									"    postman.setEnvironmentVariable(\"accessToken\", response.data.accessToken);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"team-leader@mail.com\",\n    \"password\" : \"Aa123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "login-as-teamMember",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = pm.response.json();",
+									"",
+									"if (response.data && response.data.accessToken) {",
+									"    postman.setEnvironmentVariable(\"accessToken\", response.data.accessToken);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"team-member@mail.com\",\n    \"password\" : \"Aa123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/api/v1/auth/login"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
