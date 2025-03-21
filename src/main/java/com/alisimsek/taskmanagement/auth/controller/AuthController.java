@@ -4,6 +4,7 @@ import com.alisimsek.taskmanagement.auth.controller.dto.request.LoginRequest;
 import com.alisimsek.taskmanagement.auth.controller.dto.response.AuthResponse;
 import com.alisimsek.taskmanagement.auth.service.AuthService;
 import com.alisimsek.taskmanagement.common.response.ApiResponse;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private final AuthService authService;
 
+    @Operation(summary = "Authenticate user", description = "Public endpoint - no authentication required")
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<AuthResponse>> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         return ResponseEntity.ok(ApiResponse.success(authService.authenticateUser(loginRequest)));
