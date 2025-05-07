@@ -13,24 +13,6 @@ import static java.awt.SystemColor.info;
 
 @Configuration
 public class SwaggerConfig {
-/*    @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                .addSecurityItem(new SecurityRequirement()
-                        .addList("Bearer Authentication"))
-                .components(new Components()
-                        .addSecuritySchemes("Bearer Authentication",
-                                new SecurityScheme()
-                                        //.name("bearerAuth")
-                                        .type(SecurityScheme.Type.HTTP)
-                                        .scheme("bearer")
-                                        .bearerFormat("JWT")));
-    }*/
-
-
-
-
-
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
